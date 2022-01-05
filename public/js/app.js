@@ -18,7 +18,7 @@ weatherForm.addEventListener('submit',(event)=>{
 
     messageOne.textContent = "fetching info ..."
     messageTwo.textContent = ""//resetting the text content when other data is fetched
-    fetch('http://localhost:3000/weather?address='+location).then((response)=>{
+    fetch('/weather?address='+location).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 messageOne.textContent = data.error
