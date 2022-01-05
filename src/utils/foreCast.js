@@ -10,7 +10,11 @@ const forecast = (latitude,longitude,callback) =>{
         }else if(body.error){
             callback('ooppss ....')
         }else{
-            callback(undefined,body.current.temperature)
+            callback(undefined,{
+                temperature:body.current.temperature,
+                description:body.current.weather_descriptions[0],
+                humidity:body.current.humidity
+            })
         }
     })
 }

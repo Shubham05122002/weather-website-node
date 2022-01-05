@@ -43,13 +43,15 @@ app.get('/weather',(req,res)=>{
             return res.send({error})
         }
 
-        forecast(latitude,longitude,(error,forecastData)=>{
+        forecast(latitude,longitude,(error,{temperature,description,humidity})=>{
             if(error){
                 return res.send(error)
             }
 
             res.send({
-                forecast:"The current temperature is "+forecastData+" degree celsius",
+                temperature,
+                description,
+                humidity,
                 location,
                 address:req.query.address
             })
